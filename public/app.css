@@ -1,0 +1,20 @@
+body {
+    background: #1a202c;
+    color: #a0aec0;
+    max-width: 600px;
+    margin: auto;
+    font-family: Apple;
+}
+p {
+    line-height: 1.6;
+}
+article {
+    margin-bottom: 20px;
+    border-bottom: 2px solid white;
+}
+a {
+    color: aqua;
+}
+a:hover{
+    color: red;
+}
