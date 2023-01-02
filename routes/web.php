@@ -1,6 +1,7 @@
 <?php
 
 use App\Models\Category;
+use App\Models\User;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -33,5 +34,12 @@ use Illuminate\Support\Facades\Route;
 //})->name('single-post');
 
 Route::get('category/{category:slug}', function (Category $category){
-    return view('');
+    return view('category',[
+        'posts' => $category->posts->load(['author','category']) //here we use load for query problem(n+1 problem).
+    ]);
+});
+Route::get('author/{author:name}', function (User $author){
+    return view('user-post',[
+        'posts' => $author->posts->load(['author', 'category']) //here we use load for query problem.
+    ]);
 });
