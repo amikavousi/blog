@@ -26,11 +26,12 @@ class PostServiceProvider extends ServiceProvider
     {
         $this->mapRoutes();
         $this->loadMigrationsFrom(base_path('post-app/migrations'));
+        $this->loadViewsFrom(base_path('post-app/resources'), 'PostApp');
     }
 
     private function mapRoutes ()
     {
-        Route::prefix('post')->name('post')
-            ->group(base_path('post-app/routes/web.php'));
+        Route::middleware('web')->prefix('posts')->name('posts.')
+            ->group(base_path('post-app/routes/post.php'));
     }
 }

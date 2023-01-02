@@ -1,7 +1,7 @@
 <?php
 
+use App\Models\Category;
 use Illuminate\Support\Facades\Route;
-use PostApp\Models\Post;
 
 /*
 |--------------------------------------------------------------------------
@@ -24,3 +24,14 @@ use PostApp\Models\Post;
 //        'post' => $post
 //    ]);
 //})->where('post', '[A-z_\-]+'); //validate Route url
+
+//Route::get('posts/{post:slug}', function (Post $post) {
+//    dd($post);
+//    return view('PostApp::post', [
+//        'post' => $post
+//    ]);
+//})->name('single-post');
+
+Route::get('category/{category:slug}', function (Category $category){
+    return view('');
+});
