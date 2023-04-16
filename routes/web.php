@@ -1,6 +1,5 @@
 <?php
 
-use App\Models\Category;
 use App\Models\User;
 use Illuminate\Support\Facades\Route;
 
@@ -15,31 +14,29 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-//Route::get('/', function () {
-//    return view('posts');
-//});
-//
-//Route::get('posts/{post}', function ($slug) {
-//    $post = Post::find($slug);
-//    return view('post', [
-//        'post' => $post
-//    ]);
-//})->where('post', '[A-z_\-]+'); //validate Route url
-
-//Route::get('posts/{post:slug}', function (Post $post) {
-//    dd($post);
-//    return view('PostApp::post', [
-//        'post' => $post
-//    ]);
-//})->name('single-post');
-
-Route::get('category/{category:slug}', function (Category $category){
-    return view('category',[
-        'posts' => $category->posts->load(['author','category']) //here we use load for query problem(n+1 problem).
-    ]);
+/*
+Route::get('/', function () {
+    return view('posts');
 });
+
+Route::get('posts/{post}', function ($slug) {
+    $post = Post::find($slug);
+    return view('post', [
+        'post' => $post
+    ]);
+})->where('post', '[A-z_\-]+'); //validate Route url
+
+Route::get('posts/{post:slug}', function (Post $post) {
+   dd($post);
+    return view('PostApp::post', [
+        'post' => $post
+   ]);
+})->name('single-post');
+*/
+
 Route::get('author/{author:name}', function (User $author){
     return view('user-post',[
-        'posts' => $author->posts->load(['author', 'category']) //here we use load for query problem.
+        'posts' => $author->posts
+//            ->load(['author', 'category']) //here we use load for query problem. we can use LOAD() or we can use $WITH in model
     ]);
 });

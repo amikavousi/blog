@@ -161,8 +161,6 @@ return [
         Illuminate\Translation\TranslationServiceProvider::class,
         Illuminate\Validation\ValidationServiceProvider::class,
         Illuminate\View\ViewServiceProvider::class,
-        \PostApp\Providers\PostServiceProvider::class,
-
         /*
          * Package Service Providers...
          */
@@ -175,6 +173,9 @@ return [
         // App\Providers\BroadcastServiceProvider::class,
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
+        //app providers
+        \PostApp\Providers\PostServiceProvider::class,
+        \CategoryApp\Provider\CategoryServiceProvider::class,
 
     ],
 
