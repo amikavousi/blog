@@ -1,11 +1,19 @@
 @extends('PostApp::layouts/layout')
 @section('content')
-    @foreach($posts as $post)
-        <article>
-            <h1><a href="{{route('posts.single-post',$post)}}">{{$post->title}}</a> </h1>
-            <h2>by <a style="color: aqua" href="author/{{$post->author->name}}">{{$post->author->name}}</a> in <a
-                    style="color: red" href="category/{{$post->category->slug}}">{{$post->category->title}}</a></h2>
-            <p>{{$post->description}}</p>
-        </article>
-    @endforeach
+
+    @include('PostApp::components/_header-home-page')
+    <main class="max-w-6xl mx-auto mt-6 lg:mt-20 space-y-6">
+        @if($posts->count() )
+            <x-PostApp-single-post :post="$posts[0]"/>
+            @if($posts->count() > 1)
+                <div class="lg:grid lg:grid-cols-6">
+                    @foreach($posts->skip(1) as $post)
+                        <x-PostApp-post-card
+                            :post="$post"
+                            class="{{$loop->iteration <= 2 ? 'col-span-3' : 'col-span-2'}}"/>
+                    @endforeach
+                </div>
+            @endif
+        @endif
+    </main>
 @endsection

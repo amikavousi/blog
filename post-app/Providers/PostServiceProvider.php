@@ -4,6 +4,11 @@ namespace PostApp\Providers;
 
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\ServiceProvider;
+use PostApp\components\CategoryButton;
+use PostApp\components\CategoryFilter;
+use PostApp\components\Icon;
+use PostApp\components\PostCard;
+use PostApp\components\SinglePost;
 
 class PostServiceProvider extends ServiceProvider
 {
@@ -27,6 +32,13 @@ class PostServiceProvider extends ServiceProvider
         $this->mapRoutes();
         $this->loadMigrationsFrom(base_path('post-app/migrations'));
         $this->loadViewsFrom(base_path('post-app/resources'), 'PostApp');
+        $this->loadViewComponentsAs('PostApp',[
+            PostCard::class,
+            SinglePost::class,
+            CategoryButton::class,
+            Icon::class,
+            CategoryFilter::class
+        ]);
     }
 
     private function mapRoutes ()

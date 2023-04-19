@@ -33,6 +33,9 @@ Route::get('posts/{post:slug}', function (Post $post) {
    ]);
 })->name('single-post');
 */
+Route::get('', function (){
+   return redirect('/posts');
+});
 
 Route::get('author/{author:name}', function (User $author){
     return view('user-post',[

@@ -17,8 +17,14 @@ class Post extends Model
         return PostFactory::new();
     }
 
-    protected $fillable = ['title', 'slug', 'description', 'published_at'];
+    protected $fillable = ['title', 'slug', 'description', 'summery'];
     protected $with = ['category', 'author'];
+
+    protected $appends = ['published_at'];
+    public function getPublishedAtAttribute()
+    {
+        return $this->created_at->diffForHumans();
+    }
 
     public function category()
     {
