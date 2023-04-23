@@ -11,18 +11,22 @@
                     </label>
                     <input class="border border-gray-400 p-2 w-full required:border-red-300" type="text" name="name"
                            id="name" required>
+                    <p class="text-red-500"> {{$errors->register->first('name')}} </p>
+
                 </div>
                 <div>
                     <label class="block my-2 uppercase font-bold underline text-lg text-gray-700" for="username">
                         username
                     </label>
                     <input class="border border-gray-400 p-2 w-full" type="text" name="username" id="username" required>
+                    <p class="text-red-500"> {{$errors->register->first('username')}} </p>
                 </div>
                 <div>
                     <label class="block my-2 uppercase font-bold underline text-lg text-gray-700" for="email">
                         email
                     </label>
                     <input class="border border-gray-400 p-2 w-full" type="email" name="email" id="email" required>
+                    <p class="text-red-500"> {{$errors->register->first('email')}} </p>
                 </div>
                 <div>
                     <label class="block mb-2 uppercase font-bold underline text-lg text-gray-700" for="password">
@@ -30,12 +34,14 @@
                     </label>
                     <input class="border border-gray-400 p-2 w-full" type="password" name="password" id="password"
                            required>
+                    <p class="text-red-500"> {{$errors->register->first('password')}} </p>
                 </div>
                 <div class="mb-3">
                     <button type="submit" class="bg-blue-400 text-white rounded py-2 px-3 mt-5 hover:bg-blue-500">
                         Submit
                     </button>
                 </div>
+
             </form>
         </main>
     </section>

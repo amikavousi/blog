@@ -28,7 +28,7 @@ class RegisterValidation
                 ];
             }
 
-            return response(['fail' => $errors], 422);
+            return redirect(route('register.view'))->withErrors($validator, 'register');
         }
         return $next($request);
     }
