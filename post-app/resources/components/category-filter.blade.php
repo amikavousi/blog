@@ -10,13 +10,13 @@
         </button>
         <div x-show="show" class="py-2 absolute bg-gray-100 w-full mt-2 rounded-xl z-50 overflow-auto max-h-52" style="display: none">
             @if(isset($currentCategory))
-                <a href="{{route('posts.all')}}"
+                <a href="{{route('posts.all')}}?{{http_build_query(request()->only('search'))}}"
                    class="block text-left px-3 text-sm hover:bg-gray-300 focus:bg-gray-300 " style="color: red">
                     All
                 </a>
             @endif
             @foreach($categories as $category)
-                <a href="?category={{$category->slug}}&{{http_build_query(request()->except('category'))}}"
+                <a href="?category={{$category->slug}}&{{http_build_query(request()->except('category', 'page'))}}"
                    class="block text-left px-3 text-sm hover:bg-gray-300 focus:bg-gray-300
                             {{isset($currentCategory) && $currentCategory->is($category) ? "bg-blue-300" : ''}}">
                     {{ ucwords($category->title)}}
