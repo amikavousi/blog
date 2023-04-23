@@ -10,7 +10,7 @@
                         name
                     </label>
                     <input class="border border-gray-400 p-2 w-full required:border-red-300" type="text" name="name"
-                           id="name" required>
+                           id="name" required value="{{old('name')}}">
                     <p class="text-red-500"> {{$errors->register->first('name')}} </p>
 
                 </div>
@@ -18,14 +18,14 @@
                     <label class="block my-2 uppercase font-bold underline text-lg text-gray-700" for="username">
                         username
                     </label>
-                    <input class="border border-gray-400 p-2 w-full" type="text" name="username" id="username" required>
+                    <input class="border border-gray-400 p-2 w-full" type="text" name="username" id="username" required value="{{old('username')}}">
                     <p class="text-red-500"> {{$errors->register->first('username')}} </p>
                 </div>
                 <div>
                     <label class="block my-2 uppercase font-bold underline text-lg text-gray-700" for="email">
                         email
                     </label>
-                    <input class="border border-gray-400 p-2 w-full" type="email" name="email" id="email" required>
+                    <input class="border border-gray-400 p-2 w-full" type="email" name="email" id="email" required value="{{old('email')}}">
                     <p class="text-red-500"> {{$errors->register->first('email')}} </p>
                 </div>
                 <div>

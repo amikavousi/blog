@@ -28,7 +28,7 @@ class RegisterValidation
                 ];
             }
 
-            return redirect(route('register.view'))->withErrors($validator, 'register');
+            return redirect(route('register.view'))->withInput()->withErrors($validator, 'register');
         }
         return $next($request);
     }
