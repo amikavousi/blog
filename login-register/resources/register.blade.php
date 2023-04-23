@@ -1,6 +1,6 @@
 @extends('PostApp::layouts.layout')
 @section('content')
-    <section class="px-6 py-8">
+    <section class="px-6 py-6">
         <main class="max-w-lg mx-auto mt-10 bg-gray-200 border-gray-300 p-6 rounded-xl">
             <h1 class="text-center font-bold text-xl uppercase">Register!</h1>
             <form method="POST" action="{{route('register.newUser')}}">
@@ -41,8 +41,8 @@
                         Submit
                     </button>
                 </div>
-
             </form>
+            <p class="text-sm font-bold text-blue-600"><a href="#">Already have an account? Click Here!</a></p>
         </main>
     </section>
 @endsection

@@ -15,6 +15,8 @@ class LoginRegisterController extends Controller
 
     public function register(Request $request)
     {
-        return User::query()->create($request->only('name', 'username', 'email', 'password'));
+        User::query()->create($request->only('name', 'username', 'email', 'password'));
+
+        return redirect(route('posts.all'))->with('success', 'Your account successfully created');
     }
 }
