@@ -2,24 +2,23 @@
 
 namespace PostApp\components;
 
+use CategoryApp\Model\Category;
 use Illuminate\View\Component;
 
 class CategoryFilter extends Component
 {
     private $categories;
-    private $currentCategory;
 
-    public function __construct($categories, $currentCategory = null)
+    public function __construct()
     {
-        $this->categories = $categories;
-        $this->currentCategory = $currentCategory;
+//        $this->categories = $categories;
     }
 
     public function render()
     {
         return view('PostApp::components/category-filter', [
-            'categories' => $this->categories,
-            'currentCategory' => $this->currentCategory
+            'categories' => Category::all(),
+            'currentCategory' => request('category') ? Category::query()->firstWhere('slug', request('category')) : null
         ]);
     }
 }

@@ -16,10 +16,9 @@
                 </a>
             @endif
             @foreach($categories as $category)
-                <a href="{{route('category.posts', $category->slug)}}"
+                <a href="?category={{$category->slug}}&{{http_build_query(request()->except('category'))}}"
                    class="block text-left px-3 text-sm hover:bg-gray-300 focus:bg-gray-300
-                            {{isset($current_category) && $current_category->is($category) ? "bg-blue-300" : ''}}
-                       ">
+                            {{isset($currentCategory) && $currentCategory->is($category) ? "bg-blue-300" : ''}}">
                     {{ ucwords($category->title)}}
                 </a>
             @endforeach

@@ -18,7 +18,7 @@ class DatabaseSeeder extends Seeder
 //         \App\Models\User::factory(10)->create();
 //           Category::factory(3)->create();
 
-        Post::factory(5)->create([
+        Post::factory(15)->create([
 //            'category_id' => 3,
 //            'user_id' => 3
         ]);
