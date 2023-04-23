@@ -3,8 +3,6 @@
 namespace PostApp\Controller;
 
 use App\Http\Controllers\Controller;
-use CategoryApp\Model\Category;
-use Illuminate\Database\Eloquent\Builder;
 use PostApp\Models\Post;
 
 class PostController extends Controller

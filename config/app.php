@@ -176,6 +176,7 @@ return [
         //app providers
         \PostApp\Providers\PostServiceProvider::class,
         \CategoryApp\Provider\CategoryServiceProvider::class,
+        \LoginRegisterApp\Providers\LoginRegisterServiceProvider::class
 
     ],
 

@@ -27,7 +27,8 @@
             "Database\\Factories\\": "database/factories/",
             "Database\\Seeders\\": "database/seeders/",
             "PostApp\\": "post-app/",
-            "CategoryApp\\": "category-app"
+            "CategoryApp\\": "category-app",
+            "LoginRegisterApp\\": "login-register"
         }
     },
     "autoload-dev": {

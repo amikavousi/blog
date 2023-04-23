@@ -16,4 +16,5 @@
             @endif
         @endif
     </main>
+    {{$posts->links()}}
 @endsection
