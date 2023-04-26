@@ -26,8 +26,6 @@ class LoginRegisterServiceProvider extends ServiceProvider
             ->group(base_path('login-register/routes/register.php'));
 
         Route::middleware('web')
-            ->prefix('login')
-            ->name('login.')
             ->group(base_path('login-register/routes/login.php'));
 
     }

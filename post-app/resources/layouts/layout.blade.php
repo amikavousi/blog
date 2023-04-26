@@ -15,10 +15,18 @@
             </a>
         </div>
 
-        <div class="mt-8 md:mt-0">
-            <a href="/" class="text-xs font-bold uppercase">Home Page</a>
-
-            <a href="{{route('register.view')}}"
+        <div class="mt-8 md:mt-0 flex items-center">
+            <a href="/" class="text-sm font-bold uppercase mr-4">Home Page</a>
+            @if(auth()->check())
+                <form method="POST" action="{{route('logout')}}">
+                    @csrf
+                    <button type="submit" class="text-sm font-bold uppercase text-blue-500">Logout</button>
+                </form>
+            @else
+                <a href="{{route('register.view')}}" class="text-sm font-bold uppercase text-blue-500 mr-3">Register</a>
+                <a href="{{route('login.view')}}" class="text-sm font-bold uppercase text-blue-500">Login</a>
+            @endif
+            <a href="#"
                class="bg-blue-500 ml-3 rounded-full text-xs font-semibold text-white uppercase py-3 px-5">
                 Subscribe for Updates
             </a>
@@ -64,13 +72,13 @@
         <p> {{session('success')}} </p>
     </div>
 @endif
-{{--@if (session()->has('success'))--}}
-{{--    <div x-data="{ show: true }"--}}
-{{--         x-init="setTimeout(() => show = false, 4000)"--}}
-{{--         x-show="show"--}}
-{{--         class="fixed bg-blue-500 text-white py-2 px-4 rounded-xl bottom-3 right-3 text-sm"--}}
-{{--    >--}}
-{{--        <p>{{ session('success') }}</p>--}}
-{{--    </div>--}}
-{{--@endif--}}
+@if(session()->has('failed'))
+    <div class="fixed bg-red-400 text-white rounded-xl py-2 px-4 bottom-3 right-3 text-sm"
+         x-data="{ show: true }"
+         x-init="setTimeout(() => show = false, 5000)"
+         x-show="show"
+    >
+        <p> {{session('failed')}} </p>
+    </div>
+@endif
 </body>

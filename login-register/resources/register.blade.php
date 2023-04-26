@@ -25,7 +25,7 @@
                     <label class="block my-2 uppercase font-bold underline text-lg text-gray-700" for="email">
                         email
                     </label>
-                    <input class="border border-gray-400 p-2 w-full" type="email" name="email" id="email" required value="{{old('email')}}">
+                    <input class="border border-gray-400 p-2 w-full mb-2" type="email" name="email" id="email" required value="{{old('email')}}">
                     <p class="text-red-500"> {{$errors->register->first('email')}} </p>
                 </div>
                 <div>
@@ -42,7 +42,7 @@
                     </button>
                 </div>
             </form>
-            <p class="text-sm font-bold text-blue-600"><a href="#">Already have an account? Click Here!</a></p>
+            <p class="text-sm font-bold text-blue-600"><a href="{{route('login.view')}}">Already have an account? Click Here!</a></p>
         </main>
     </section>
 @endsection

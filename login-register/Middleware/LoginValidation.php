@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Validation\Rules\Password;
 
-class RegisterValidation
+class LoginValidation
 {
     /**
      * Handle an incoming request.
@@ -19,37 +19,26 @@ class RegisterValidation
     public function handle(Request $request, Closure $next)
     {
         $validator = Validator::make($this->getData(), $this->getRules());
-        if ($validator->fails()) {
-            $errors = [];
-            foreach ($validator->errors()->getMessages() as $field => $error) {
-                $errors[] = [
-                    'field' => $field,
-                    'error' => $error
-                ];
-            }
-
-            return redirect(route('register.view'))->withInput()->withErrors($validator, 'register');
+        if ($validator->fails()){
+            return redirect()->back()->withErrors($validator, 'login')->withInput();
         }
         return $next($request);
     }
 
     private function getData()
     {
-        return \request()->only([
-            'name',
-            'username',
-            'email',
-            'password'
+        return request()->only([
+            'emailOrUsername',
+            'password',
         ]);
     }
 
     private function getRules()
     {
         return [
-            'name' => ['required'],
-            'username' => ['required', 'unique:users'],
-            'email' => ['nullable', 'unique:users', 'email'],
-            'password' => ['required', Password::min('8')]
+            'emailOrUsername' => ['required'],
+            'password' => ['required', Password::min(8)]
         ];
     }
+
 }
