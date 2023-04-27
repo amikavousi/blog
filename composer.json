@@ -28,7 +28,8 @@
             "Database\\Seeders\\": "database/seeders/",
             "PostApp\\": "post-app/",
             "CategoryApp\\": "category-app",
-            "LoginRegisterApp\\": "login-register"
+            "LoginRegisterApp\\": "login-register",
+            "CommentApp\\": "comment-app"
         }
     },
     "autoload-dev": {

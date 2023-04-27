@@ -36,7 +36,7 @@
                         Back to Posts
                     </a>
 
-                    <x-PostApp-category-button :category="$post->category" />
+                    <x-PostApp-category-button :category="$post->category"/>
 
                 </div>
 
@@ -50,6 +50,10 @@
                     </p>
                 </div>
             </div>
+            <section class="col-span-8 col-start-5 mt-5 ">
+                <x-CommentApp-new-comment :postId="$post->id"/>
+                <x-CommentApp-comment :post="$post"/>
+            </section>
         </article>
     </main>
 
