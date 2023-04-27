@@ -177,7 +177,8 @@ return [
         \PostApp\Providers\PostServiceProvider::class,
         \CategoryApp\Provider\CategoryServiceProvider::class,
         \LoginRegisterApp\Providers\LoginRegisterServiceProvider::class,
-        \CommentApp\Provider\CommentServiceProvider::class
+        \CommentApp\Provider\CommentServiceProvider::class,
+        MailServiceApp\providers\MailServiceServiceProvider::class
 
     ],
 
