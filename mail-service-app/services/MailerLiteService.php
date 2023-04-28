@@ -4,7 +4,7 @@ namespace MailServiceApp\services;
 
 use MailerLite\MailerLite;
 
-class MailerLiteService
+class MailerLiteService implements MailServicesInterface
 {
     private $mailerLite;
 
@@ -19,15 +19,6 @@ class MailerLiteService
             'email' => $email,
         ];
 
-        $response = $this->mailerLite->subscribers->create($data);
-        dd($response);
-    }
-
-    public function allSub()
-    {
-        $mailerLite = new MailerLite(['api_key' => config('services.mail.mailer_lite.key')]);
-
-        $response = $mailerLite->subscribers->get();
-        dd($response);
+         $this->mailerLite->subscribers->create($data);
     }
 }

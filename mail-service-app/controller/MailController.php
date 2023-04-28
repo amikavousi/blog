@@ -3,17 +3,19 @@
 namespace MailServiceApp\controller;
 
 use App\Http\Controllers\Controller;
-use Illuminate\Validation\ValidationException;
-use MailServiceApp\services\MailerLiteService;
+use Illuminate\Support\Str;
+use MailServiceApp\services\MailServicesInterface;
 
 class MailController extends Controller
 {
-    public function __invoke(MailerLiteService $mailer)
+    public function __invoke(MailServicesInterface $mail)
     {
         try {
-            $mailer->newSub(request('email'));
+            $mail->newSub(request('email'));
+            return redirect()->back()->with('success', 'You are now subscribed');
         } catch (\Exception $exception) {
-            throw ValidationException::withMessages($exception);
+            $error = Str::between($exception->getMessage(), 'title":"', '",') ?? 'something wrongs :(';
+            return redirect()->back()->with('failed', $error);
         }
     }
 }

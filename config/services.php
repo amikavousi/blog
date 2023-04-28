@@ -31,6 +31,7 @@ return [
     ],
 
     'mail' => [
+        'mail_service' => env('MAIL_SERVICE'),
         'mailchimp' => [
             'key' => env('MAILCHIMP_API_KEY'),
             'server' => env('MAILCHIMP_SERVER')
