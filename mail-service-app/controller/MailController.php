@@ -8,9 +8,8 @@ use MailServiceApp\services\MailerLiteService;
 
 class MailController extends Controller
 {
-    public function __invoke()
+    public function __invoke(MailerLiteService $mailer)
     {
-        $mailer = new MailerLiteService(config('services.mail.mailer_lite.key'));
         try {
             $mailer->newSub(request('email'));
         } catch (\Exception $exception) {

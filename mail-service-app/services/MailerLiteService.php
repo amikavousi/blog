@@ -6,22 +6,20 @@ use MailerLite\MailerLite;
 
 class MailerLiteService
 {
-    private $apikey;
+    private $mailerLite;
 
-    public function __construct($apikey)
+    public function __construct(MailerLite $mailerLite)
     {
-        $this->apikey = $apikey;
+        $this->mailerLite = $mailerLite;
     }
 
     public function newSub($email)
     {
-        $mailerLite = new MailerLite(['api_key' => $this->apikey]);
-
         $data = [
             'email' => $email,
         ];
 
-        $response = $mailerLite->subscribers->create($data);
+        $response = $this->mailerLite->subscribers->create($data);
         dd($response);
     }
 
